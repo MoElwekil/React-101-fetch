@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import Form from './form'
 
 class App extends Component {
+
+    onFormSubmit(e) {
+    }
     render() {
         return (
             <div>
-                <Form />
+                <Form onSubmit={(e) => { this.onFormSubmit(e) }} />
             </div>
         )
     }
