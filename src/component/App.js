@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Form from './form'
+import Unsplash from '../api/unsplash';
 
 class App extends Component {
     state = { images: [] }
 
     onFormSubmit = async (e) => {
-        const response = await axios.get('https://api.unsplash.com/search/photos', {
-            params: { query: e },
-            headers: { Authorization: "Client-ID Yme6ZcumIXpWryQ0DPc249CE0ua2Mxh66Y-4W2gPAAc", },
+        const response = await Unsplash.get('/search/photos', {
+            params: { query: e }
         })
 
         this.setState({ images: response.data.results });
